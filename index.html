@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -32,15 +33,15 @@
         </div>
       </div>
 
-      <!-- Right side -->
       <div class="level-right">
         <p class="level-item"><strong>Welcome, Oscar</strong></p>
         <p class="level-item"><a>Log Out</a></p>
+        <p class="level-item"><a @click="aktifinModal">Keranjang</a></p>
       </div>
     </nav>
 
-    <div class="columns">
-      <div class="column is-one-third"> <!-- Left side -->
+    <div class="columns"> <!-- GRID MAIN CONTENT START -->
+      <div class="column is-one-quarter"> <!-- Left side -->
 
         <nav class="panel"> <!-- Link -->
           <p class="panel-heading">
@@ -83,8 +84,187 @@
             Jomblo
           </a>
         </nav> <!-- End Link -->
+      </div> <!-- End Left side -->
 
-        <article class="message"> <!-- Keranjang -->
+
+
+      <div class="column"> <!-- Right side -->
+        <div class="columns is-multiline is-mobile"> <!-- CONTENT JUALAN -->
+
+          <div class="column is-one-quarter">
+            <a href="">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://orig05.deviantart.net/f97c/f/2015/008/2/a/ogremagi__by_gamerlherme-d8d4nd0.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Ogre Magi Dota 2</b></br></br>
+                  Harga : 82000
+                <br>
+                </div>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="column is-one-quarter">
+            <a href="">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                <b>Dazzle Dota 2</b></br></br>
+                  Harga : 75000
+                <br>
+                </div>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="column is-one-quarter">
+            <a href="">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://4.bp.blogspot.com/-So6ydi18v7Y/VgJgxXVwtcI/AAAAAAAAATo/rGvbf1S77QY/s1600/naga%2Bsiren%2Bguide.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Naga Siren Dota 2</b></br></br>
+                  Harga : 20000
+                <br>
+
+                </div>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="column is-one-quarter">
+            <a href="">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://www.gambarnaruto.com/wp-content/uploads/2016/03/32-Gambar-EarthShaker-Dota-2-Wallpaper-2.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>EarthSeeker Dota 2</b></br></br>
+                  Harga : 100000
+                <br>
+
+                </div>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Juggernaut Dota 2</b></br></br>
+                  Harga : 50000
+                <br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://res.cloudinary.com/lmn/image/upload/c_limit,h_360,w_640/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/9/j/u/9juawao-33e57.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Gaben Dota 2</b></br></br>
+                  Harga : 15000
+                <br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://pre12.deviantart.net/f81c/th/pre/f/2015/047/2/6/dota2_pudge_by_kostya_pingwin-d8i94wx.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Pudge Dota 2</b></br></br>
+                  Harga : 12500
+                <br>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="http://im.ziffdavisinternational.com/ign_nl/screenshot/default/shadow-fiend_unc1.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  <b>Shadow Fiend Dota 2</b></br></br>
+                  Harga : 17000
+                <br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End CONTENT JUALAN -->
+      </div> <!-- End Right side -->
+    </div> <!-- GRID MAIN CONTENT END-->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>BukanLapak</strong> by BukanLapak. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+          </p>
+          <p>
+            <a class="icon" href="https://github.com/jgthms/bulma">
+              <i class="fa fa-github"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div v-bind:class="modalnya">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <article class="message is-info"> <!-- Keranjang -->
           <div class="message-header">
             <p><b>Keranjang Belanja Anda</b></p>
           </div>
@@ -131,188 +311,29 @@
             </tr>
           </tbody>
         </table>
-      </div> <!-- End Left side -->
-
-
-
-      <div class="column">
-        <div class="columns is-desktop">
-
-          <div class="column">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://orig05.deviantart.net/f97c/f/2015/008/2/a/ogremagi__by_gamerlherme-d8d4nd0.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Ogre Magi Dota 2</b></br></br>
-                  Harga : 82000
-                <br>
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                <b>Dazzle Dota 2</b></br></br>
-                  Harga : 75000
-                <br>
-
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://4.bp.blogspot.com/-So6ydi18v7Y/VgJgxXVwtcI/AAAAAAAAATo/rGvbf1S77QY/s1600/naga%2Bsiren%2Bguide.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Naga Siren Dota 2</b></br></br>
-                  Harga : 20000
-                <br>
-
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://www.gambarnaruto.com/wp-content/uploads/2016/03/32-Gambar-EarthShaker-Dota-2-Wallpaper-2.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>EarthSeeker Dota 2</b></br></br>
-                  Harga : 100000
-                <br>
-
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="columns is-desktop">
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Juggernaut Dota 2</b></br></br>
-                  Harga : 50000
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://im.ziffdavisinternational.com/ign_nl/screenshot/default/shadow-fiend_unc1.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Shadow Fiend Dota 2</b></br></br>
-                  Harga : 17000
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://res.cloudinary.com/lmn/image/upload/c_limit,h_360,w_640/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/9/j/u/9juawao-33e57.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Gaben Dota 2</b></br></br>
-                  Harga : 15000
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://pre12.deviantart.net/f81c/th/pre/f/2015/047/2/6/dota2_pudge_by_kostya_pingwin-d8i94wx.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Pudge Dota 2</b></br></br>
-                  Harga : 12500
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      <button @click="tutupModal" class="modal-close"></button>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
-          <p>
-            <strong>BukanLapak</strong> by BukanLapak. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
-          </p>
-          <p>
-            <a class="icon" href="https://github.com/jgthms/bulma">
-              <i class="fa fa-github"></i>
-            </a>
-          </p>
-        </div>
-      </div>
-    </footer>
+
   </div>
   </body>
 
-  
+  <script>
+    var app4 = new Vue({
+    el: '#app',
+    data: {
+      modalnya:'modal'
+    },
+    methods:{
+      aktifinModal:function(){
+        this.modalnya = 'modal is-active'
+      },
+      tutupModal:function(){
+        this.modalnya = 'modal'
+      }
+    }
+  })
+  </script>
+
 </html>
