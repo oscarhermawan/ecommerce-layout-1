@@ -347,7 +347,18 @@
         }
       },
       checkout:function(){
-        console.log(this.keranjang);
+        let self = this
+        let data = {
+          value:this.keranjang,
+          totalharga:this.total
+        }
+        axios.post('http://localhost:3000/transactions', data)
+        .then(function(response){
+
+        })
+        .catch(function(err){
+          console.log(err);
+        })
       }
     },
     created:function(){
