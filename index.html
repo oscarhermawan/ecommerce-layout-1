@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -91,26 +92,25 @@
       <div class="column"> <!-- Right side -->
         <div class="columns is-multiline is-mobile"> <!-- CONTENT JUALAN -->
 
-          <div class="column is-one-quarter">
-            <a href="">
+          <div class="column is-one-quarter" v-for="book in books">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="http://orig05.deviantart.net/f97c/f/2015/008/2/a/ogremagi__by_gamerlherme-d8d4nd0.jpg" alt="Image">
+                  <img v-bind:src="book.photo" alt="Image">
                 </figure>
               </div>
               <div class="card-content">
                 <div class="content">
-                  <b>Ogre Magi Dota 2</b></br></br>
-                  Harga : 82000
+                  <b>{{book.title}}</b></br></br>
+                  Harga : {{book.price}}
                 <br>
+                <button @click="tambahKeranjang(book)" class="button is-success">Beli</button>
                 </div>
               </div>
             </div>
-            </a>
           </div>
 
-          <div class="column is-one-quarter">
+          <!-- <div class="column is-one-quarter">
             <a href="">
             <div class="card">
               <div class="card-image">
@@ -220,9 +220,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="column is-one-quarter">
+          <!-- <div class="column is-one-quarter">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -234,11 +234,10 @@
                   <b>Shadow Fiend Dota 2</b></br></br>
                   Harga : 17000
                 <br>
-
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div> <!-- End CONTENT JUALAN -->
       </div> <!-- End Right side -->
@@ -281,33 +280,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Pakaian Kolam Renang</td>
-              <td>1</td>
-              <td>3000</td>
-              <td>3000</td>
-              <td><button class="delete"></button></td>
-            </tr>
-            <tr>
-              <td>Pakaian Kolam Renang</td>
-              <td>1</td>
-              <td>3000</td>
-              <td>3000</td>
+            <tr v-for="belanjaan in keranjang">
+              <td>{{belanjaan.title}}</td>
+              <td>{{belanjaan.jumlah}}</td>
+              <td>{{belanjaan.price}}</td>
+              <td>{{belanjaan.subtotal}}</td>
               <td><button class="delete"></button></td>
             </tr>
             <tr>
               <td>Total</td>
               <td></td>
               <td></td>
+              <td>{{total}}</td>
               <td></td>
-              <td>70000</td>
             </tr>
             <tr>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td><div class="button is-success">Checkout</div></td>
+              <td><div class="button is-success" @click="checkout">Bayar</div></td>
             </tr>
           </tbody>
         </table>
@@ -323,15 +315,50 @@
     var app4 = new Vue({
     el: '#app',
     data: {
-      modalnya:'modal'
+      modalnya:'modal',
+      books:[],
+      keranjang:[],
+      total:''
     },
     methods:{
       aktifinModal:function(){
+        let jumlah = 0
+        this.keranjang.forEach(function(book){
+          jumlah += book.subtotal
+        })
+        this.total = jumlah
         this.modalnya = 'modal is-active'
       },
       tutupModal:function(){
         this.modalnya = 'modal'
+      },
+      tambahKeranjang:function(book){
+        alert('Keranjang Anda Berhasil Ditambahkan. Untuk Pembayaran / Melihat Keranjang Anda, silahkan klik "Keranjang" di Pojok Kanan atas')
+        var index = this.keranjang.findIndex(keranjang => keranjang._id == book._id)
+        if(index!=-1){
+          let newBook = this.keranjang[index]
+          newBook['jumlah']+=1
+          newBook.subtotal = newBook.jumlah * newBook.price
+          this.keranjang.splice(index, 1, newBook)
+        } else {
+            book['jumlah'] = 1;
+            book['subtotal'] = book.jumlah * book.price
+            this.keranjang.push(book)
+        }
+      },
+      checkout:function(){
+        console.log(this.keranjang);
       }
+    },
+    created:function(){
+      let self = this
+      axios.get('http://localhost:3000/books')
+        .then(function(response){
+          self.books = response.data
+        })
+        .catch(function(err){
+          console.log(err);
+        })
     }
   })
   </script>
