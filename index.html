@@ -23,10 +23,10 @@
         <div class="level-item">
           <div class="field has-addons">
             <p class="control">
-              <input class="input" type="text" placeholder="Find a post">
+              <input class="input" type="text" placeholder="Find an item" v-model="search">
             </p>
             <p class="control">
-              <button class="button">
+              <button class="button" @click="cariJudul">
                 Search
               </button>
             </p>
@@ -109,136 +109,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="column is-one-quarter">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                <b>Dazzle Dota 2</b></br></br>
-                  Harga : 75000
-                <br>
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column is-one-quarter">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://4.bp.blogspot.com/-So6ydi18v7Y/VgJgxXVwtcI/AAAAAAAAATo/rGvbf1S77QY/s1600/naga%2Bsiren%2Bguide.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Naga Siren Dota 2</b></br></br>
-                  Harga : 20000
-                <br>
-
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column is-one-quarter">
-            <a href="">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://www.gambarnaruto.com/wp-content/uploads/2016/03/32-Gambar-EarthShaker-Dota-2-Wallpaper-2.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>EarthSeeker Dota 2</b></br></br>
-                  Harga : 100000
-                <br>
-
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-
-          <div class="column is-one-quarter">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://i.imgur.com/eUGpsRf.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Juggernaut Dota 2</b></br></br>
-                  Harga : 50000
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-one-quarter">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://res.cloudinary.com/lmn/image/upload/c_limit,h_360,w_640/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyc/9/j/u/9juawao-33e57.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Gaben Dota 2</b></br></br>
-                  Harga : 15000
-                <br>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-one-quarter">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://pre12.deviantart.net/f81c/th/pre/f/2015/047/2/6/dota2_pudge_by_kostya_pingwin-d8i94wx.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Pudge Dota 2</b></br></br>
-                  Harga : 12500
-                <br>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="column is-one-quarter">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="http://im.ziffdavisinternational.com/ign_nl/screenshot/default/shadow-fiend_unc1.jpg" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b>Shadow Fiend Dota 2</b></br></br>
-                  Harga : 17000
-                <br>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         </div> <!-- End CONTENT JUALAN -->
       </div> <!-- End Right side -->
     </div> <!-- GRID MAIN CONTENT END-->
@@ -318,7 +188,8 @@
       modalnya:'modal',
       books:[],
       keranjang:[],
-      total:''
+      total:'',
+      search:''
     },
     methods:{
       aktifinModal:function(){
@@ -359,6 +230,19 @@
         .catch(function(err){
           console.log(err);
         })
+      },
+      cariJudul(){
+        let self = this
+        let data = {
+          search:this.search
+        }
+        axios.post(`http://localhost:3000/books/search/${this.search}`)
+          .then(function(response){
+            self.books = response.data
+          })
+          .catch(function(err){
+            console.log(err);
+          })
       }
     },
     created:function(){
